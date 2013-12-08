@@ -17,7 +17,7 @@ Redland python bindings 16.0.0.1
 
 # Running
 
-	cmd$ python load-profiles.py <pathname to linkedin json dump>
+	cmd$ python kindling.py <pathname to linkedin json dump>
 
 
 ### Colophon

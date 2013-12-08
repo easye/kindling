@@ -124,7 +124,7 @@ def parse_positions(positions, person_id):
 
 def parse_id(collection, key):
   _id = collection[key]
-  return (RDF.Node(blank = "company-%s" % _id), collection[key], _id)
+  return (RDF.Node(blank = "%s-%s" % (key,_id)), collection[key], _id)
   
 _last_thing = None
 def as_utf8(thing):
