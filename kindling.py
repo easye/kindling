@@ -115,25 +115,33 @@ def parse_positions(positions, person_id):
                             datatype = _xsd.int._get_uri()))
     if position.has_key('company'):
       (company_id_, company, company_id) = parse_id(position, 'company')
-      accumulate(position_id, 
-                 _position.company,
-                 company_id_)
+      if not company_id_:
+        company_id_ = RDF.Node()
+        company = position['company']
+        accumulate(position_id, _position.company, company_id_)
+      else: 
+        accumulate(position_id, _position.company, company_id_)
       for key in _company_keys:
         if company.has_key(key):
           accumulate(company_id_, _company[key], RDF.Node(literal = as_utf8(company[key])))
 
 def parse_id(collection, key):
-  _id = collection[key]
-  return (RDF.Node(blank = "%s-%s" % (key,_id)), collection[key], _id)
+  if not collection[key].has_key('id'):
+#    print "Key '%s' of collection '%s' has no id." % (key, collection)
+    return (None, None, None)
+  _id = collection[key]['id']
+  return (RDF.Node(blank = "%s-%s" % (key,_id)), 
+          collection[key], 
+          _id)
   
 _last_thing = None
 def as_utf8(thing):
   global _last_thing
   _last_thing = thing
   if isinstance(thing, unicode):
-    thing.encode("utf8")
+    return thing.encode("utf8")
   else:
-    str(thing)
+    return str(thing)
 
 def main():
   pathname = None
