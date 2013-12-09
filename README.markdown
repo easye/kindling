@@ -7,7 +7,7 @@ converting to processable RDF.
 
 Python 2.7.x
 Raptor RDF library
-Redland python bindings 16.0.0.1
+Redland python bindings 1.0.16.1
 
 ## OS X installation
 
@@ -24,4 +24,4 @@ Redland python bindings 16.0.0.1
 
 Mark Evenson
 Created: 28-NOV-2013
-Revised: 08-DEC-2013
+Revised: 09-DEC-2013
