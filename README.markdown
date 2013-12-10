@@ -13,7 +13,7 @@ Redland python bindings 1.0.16.1
 
 ### MacPorts
 
-	port install python27 redland-bindings+python27
+	port install python27 redland-bindings +python27
 
 # Running
 
@@ -24,4 +24,4 @@ Redland python bindings 1.0.16.1
 
 Mark Evenson
 Created: 28-NOV-2013
-Revised: 09-DEC-2013
+Revised: 10-DEC-2013
